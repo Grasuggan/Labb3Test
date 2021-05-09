@@ -52,10 +52,10 @@ export default function CoursesList() {
 
 
    if (errCourses)
-   return <div>Loading courses</div>;
+   return <div>Error courses</div>;
 
     if (loadingCourses)
-    return <div>Loading</div>;
+    return <div>Loading courses</div>;
 
 
    const { queryCourse: allCourses } = courses;

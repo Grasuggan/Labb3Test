@@ -42,33 +42,18 @@ export const ALL_STUDENTS_QUERY = gql`
   }
 `;
 
-export const ALL_COURSES_QUERY = gql`
-  query allCourses {
-    queryCourse {
-      id
-      name
-      desc
-    }
-  }
-`;
 
 
-export default function StudentList({ allPostsData }) {
+
+export default function StudentList() {
   const classes = useStyles();
 
   const { loading, error, data } = useQuery(ALL_STUDENTS_QUERY);
-  const {
-    loading: loadingCourses,
-    error: errCourses,
-    data: courses,
-  } = useQuery(ALL_COURSES_QUERY);
 
-
-
-    if (error || errCourses)
+    if (error)
     return <div>Error loading students.</div>;
-    if (loading || loadingCourses)
-    return <div>Loading</div>;
+    if (loading)
+    return <div>Loading students</div>;
 
   const { queryStudent: allStudents } = data;
 

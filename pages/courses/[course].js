@@ -32,26 +32,26 @@ const useStyles = makeStyles({
     },
   });
 
+export const CURRENT_COURSE_QUERY = gql`
+query getCurrentCourseStudents($cname: String)
+{
+queryCourse(filter: {name: {anyofterms: $cname}}) 
+{
+ id
+ name
+ desc
+ students{
+   firstName
+   lastName
+   status
+ }
+}
+}
+`;
 
 export async function getStaticProps(props) {
   const apolloClient = initializeApollo();
 
-  const CURRENT_COURSE_QUERY = gql`
-  query getCurrentCourseStudents($cname: String)
-{
- queryCourse(filter: {name: {anyofterms: $cname}}) 
- {
-   id
-   name
-   desc
-   students{
-     firstName
-     lastName
-     status
-   }
- }
-}
-`;
 
     const studentsData = await apolloClient.query({
       query: CURRENT_COURSE_QUERY,
@@ -82,11 +82,13 @@ export async function getStaticPaths() {
 }
 
  export default function Course(pageProps) {
+
+  console.log(pageProps)
   const classes = useStyles();
     return (
       <Layout>
  {pageProps.studentsData.data.queryCourse.map((c) => (
-   <div>
+   <div key={c.id}>
       <h1 style={{ textAlign: "center" }}> {c.name} </h1> 
             <Grid style={{ marginTop: "20px" }} container spacing={2}>
        
