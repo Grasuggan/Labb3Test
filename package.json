@@ -14,11 +14,11 @@
       "\\.(css|less)$": "<rootDir>/tools/styleMock.js"
     }
   },
-  "babel": {    
-    "presets": [      
-      "next/babel"    
-      ]  
-    },
+  "babel": {
+    "presets": [
+      "next/babel"
+    ]
+  },
   "dependencies": {
     "@apollo/client": "^3.3.15",
     "@apollo/react-components": "^4.0.0",
@@ -32,7 +32,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "remark": "^13.0.0",
-    "remark-html": "^13.0.1"
+    "remark-html": "^13.0.1",
+    "waait": "^1.0.5"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.14.1",

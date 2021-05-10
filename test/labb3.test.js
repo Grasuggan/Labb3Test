@@ -1,7 +1,6 @@
 import TestRenderer from 'react-test-renderer';
 import { MockedProvider } from '@apollo/client/testing';
 import CoursesList, { ALL_COURSES_QUERY } from "../components/coursesList";
-import Course, {CURRENT_COURSE_QUERY} from "../pages/courses/[course]"
 import Home from '../pages/index'
 import Head from 'next/head'
 import Layout from '../components/sharedLayout'
@@ -20,8 +19,9 @@ it('gets student firstname', async () => {
       <StudentList />
     </MockedProvider>,
   );
-
-  await new Promise(resolve => setTimeout(resolve, 0));
+  
+ 
+   await new Promise(resolve => setTimeout(resolve, 0));
 
   const tree = component.toJSON();
   expect(tree.children).toContain('Error loading students.');
